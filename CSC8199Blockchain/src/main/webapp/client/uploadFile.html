@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <title>upload file</title>
+
+    <style type="text/css">
+        body {
+            background: #f6f5f7;
+            background-image: url(img/img1.png);
+            background-size: cover;
+            font-family:Arial, Verdan, sans-serif;
+            width:330px; margin:0 auto; margin-top:100px;
+            flex-direction: column;
+         ;
+
+        }
+
+        .uploader { position:relative; display:inline-block; overflow:hidden; cursor:default; padding:0; margin:10px 0px; -moz-box-shadow:0px 0px 5px #ddd; -webkit-box-shadow:0px 0px 5px #ddd; box-shadow:0px 0px 5px #ddd; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; }
+        .filename { float:left; display:inline-block; outline:0 none; height:32px; width:180px; margin:0; padding:8px 10px; overflow:hidden; cursor:default; border:1px solid; border-right:0; font:9pt/100% Arial, Helvetica, sans-serif; color:#777; text-shadow:1px 1px 0px #fff; text-overflow:ellipsis; white-space:nowrap; -moz-border-radius:5px 0px 0px 5px; -webkit-border-radius:5px 0px 0px 5px; border-radius:5px 0px 0px 5px; background:#f5f5f5; background:-moz-linear-gradient(top, #fafafa 0%, #eee 100%); background:-webkit-gradient(linear, left top, left bottom, color-stop(0%, #fafafa), color-stop(100%, #f5f5f5)); filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fafafa', endColorstr='#f5f5f5', GradientType=0);
+            border-color:#ccc; -moz-box-shadow:0px 0px 1px #fff inset; -webkit-box-shadow:0px 0px 1px #fff inset; box-shadow:0px 0px 1px #fff inset; -moz-box-sizing:border-box; -webkit-box-sizing:border-box; box-sizing:border-box; }
+        .button { float:left; height:32px; display:inline-block; outline:0 none; padding:8px 12px; margin:0; cursor:pointer; border:1px solid; font:bold 9pt/100% Arial, Helvetica, sans-serif; -moz-border-radius:0px 5px 5px 0px; -webkit-border-radius:0px 5px 5px 0px; border-radius:0px 5px 5px 0px; -moz-box-shadow:0px 0px 1px #fff inset; -webkit-box-shadow:0px 0px 1px #fff inset; box-shadow:0px 0px 1px #fff inset; }
+        .uploader input[type=file] { position:absolute; top:0; right:0; bottom:0; border:0; padding:0; margin:0; height:30px; cursor:pointer; filter:alpha(opacity=0); -moz-opacity:0; -khtml-opacity: 0; opacity:0; }
+        input[type=button]::-moz-focus-inner {
+            padding:0;
+            border:0 none;
+            -moz-box-sizing:content-box;
+        }
+        input[type=button]::-webkit-focus-inner {
+            padding:0;
+            border:0 none;
+            -webkit-box-sizing:content-box;
+        }
+        input[type=text]::-moz-focus-inner {
+            padding:0;
+            border:0 none;
+            -moz-box-sizing:content-box;
+        }
+        input[type=text]::-webkit-focus-inner {
+            padding:0;
+            border:0 none;
+            -webkit-box-sizing:content-box;
+        }
+
+        /* Orange Color Scheme ------------------------ */
+
+        .orange .button { color:#fff; text-shadow:1px 1px 0px #c04501; background:#d54d01; background:-moz-linear-gradient(top, #f86c1f 0%, #d54d01 100%); background:-webkit-gradient(linear, left top, left bottom, color-stop(0%, #f86c1f), color-stop(100%, #d54d01)); filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f86c1f', endColorstr='#d54d01', GradientType=0);
+            border-color:#c04501; }
+        .orange:hover .button { background:#f86c1f; background:-moz-linear-gradient(top, #d54d01 0%, #f86c1f 100%); background:-webkit-gradient(linear, left top, left bottom, color-stop(0%, #d54d01), color-stop(100%, #f86c1f)); filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#d54d01', endColorstr='#f86c1f', GradientType=0);
+        }
+
+    </style>
+    <script type="text/javascript" src="libs/jquery-2.0.3.js"></script>
+    <script type="text/javascript">
+        $(function(){
+
+            $("input[type=file]").change(function(){
+                $(this).parents(".uploader").find(".filename").val($(this).val());
+            });
+
+            $("input[type=file]").each(function(){
+                if($(this).val()==""){
+                    $(this).parents(".uploader").find(".filename").val("Please select a file...");
+                }
+            });
+
+        });
+    </script>
+
+</head>
+<body>
+<div >
+    <h3>Welcome To Fair Exchange System</h3>
+</div>
+<div class="uploader orange">
+    <input type="text" class="filename" readonly/>
+    <input type="button" name="file" class="button" value="Select"/>
+    <input type="file" size="30"/>
+</div>
+<div class="orange" style="margin-top: 10px ;width: fit-content">
+    <input type="button" name="userSign" class="button" value="Generate user secret key"/>
+    <input style="margin-top: 10px" type="text" readonly/>
+</div>
+
+<div class="orange" style="margin-top: 10px">
+    <h4>Select User</h4>
+    <select>
+    <option value="Alice">Alice</option>
+    <option value="Bob">Bob</option>
+    </select>
+</div>
+
+<div class="orange" style="margin-top: 10px">
+    <input  type="button" name="submit" class="button" value="Submit"/>
+
+    <input style="margin-left: 40px" type="button" name="cancel" class="button" value="Cancel"/>
+</div>
+
+
+
+</body>
+</html>

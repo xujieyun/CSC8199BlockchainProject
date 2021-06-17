@@ -1,0 +1,75 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width-device-width,initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="sie-edge" />
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<title>login registered</title>
+
+<!--图标库-->
+<script src="https://unpkg.com/ionicons@4.2.2/dist/ionicons.js"></script>
+<script src="libs/jquery-2.0.3.js"></script>
+</head>
+
+<body>
+
+<div class="container" id="container">
+  <div class="form-container sign-up-container">
+    <form action="#">
+      <h1>Sign up</h1>
+      <!--<div class="social-container"> <a href="#" class="social">
+        <ion-icon name="logo-facebook"></ion-icon>
+        </a> <a href="#" class="social"> 
+        <ion-icon name="logo-googleplus"></ion-icon>
+        </a> <a href="#" class="social">
+        <ion-icon name="logo-linkedin"></ion-icon>
+        </a> </div>-->
+      <span>Sign up with your email</span>
+      <input id="name" type="text" placeholder="name">
+      <input id="email" type="email" placeholder="email">
+      <input id="password" type="password" placeholder="password">
+      <!-- <input id="sender" type="radio" checked="checked" name="1" /><span>Sender</span>
+      <input id="receiver" type="radio" name="1"/><span>Receiver</span> -->
+      <button type="button" onClick="sighUp()">Sign up</button>
+    </form>
+  </div>
+  <div class="form-container sign-in-container">
+    <form action="#">
+      <h1>Sign in</h1>
+      <!-- <div class="social-container"> <a href="#" class="social">
+         <ion-icon name="logo-facebook"></ion-icon>
+         </a> <a href="#" class="social">
+         <ion-icon name="logo-googleplus"></ion-icon>
+         </a> <a href="#" class="social">
+         <ion-icon name="logo-linkedin"></ion-icon>
+         </a> </div>-->
+      <span>log in with UserName</span>
+      <input id="signInName" type="text" placeholder="signInName">
+      <input id="signInPassword" type="password" placeholder="signInpassword">
+      <button type="button" onClick="signIn()">Sign in</button>
+    </form>
+  </div>
+  <div class="overlay-container">
+    <div class="overlay">
+      <div class="overlay-panel overlay-left">
+        <h1>welcome</h1>
+        <p>Keep in touch with us</p>
+        <button class="ghost" id="signIn">Sign in</button>
+      </div>
+      <div class="overlay-panel overlay-right">
+        <h1>welcome</h1>
+        <p>Enter your profile and start the journey with us</p>
+        <button class="ghost" id="signUp">Sign up</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script  src="js/script.js"></script> 
+<script  src="js/register.js"></script> 
+
+</body>
+</html>

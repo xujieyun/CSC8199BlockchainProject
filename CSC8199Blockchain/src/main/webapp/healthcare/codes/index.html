@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <link rel="stylesheet" type="text/css" href="main.css">
+
+    <script src="./node_modules/web3/dist/web3.min.js"></script>
+
+</head>
+<body>
+    <div class="container">
+
+        <h1>Info Contract</h1>
+
+        <h2 id="info"></h2>
+
+        <label for="name" class="col-lg-2 control-label">Name</label>
+        <input id="name" type="text">
+
+        <label for="name" class="col-lg-2 control-label">Role</label>
+        <input id="role" type="text">
+
+        <button id="button">Update Info</button>
+		<button id="showButton">Show Info</button>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+
+    <script>
+       if (typeof web3 !== 'undefined') {
+            web3 = new Web3(web3.currentProvider);
+        } else {
+            // set the provider you want from Web3.providers
+            web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:7545"));
+        }
+
+        web3.eth.defaultAccount = web3.eth.accounts[0];
+
+        var InfoRole = web3.eth.contract([
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "userName",
+				"type": "string"
+			},
+			{
+				"name": "role",
+				"type": "uint256"
+			}
+		],
+		"name": "set",
+		"outputs": [],
+		"payable": false,
+		"type": "function",
+		"stateMutability": "nonpayable"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "userName",
+				"type": "string"
+			}
+		],
+		"name": "get",
+		"outputs": [
+			{
+				"name": "retVal",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"type": "function",
+		"stateMutability": "view"
+	}
+]);
+
+        var info = InfoRole.at('0x86265491820F2639b0FAa7aFF9BDAe7117d51DC4');
+
+        info.get($("#name").val(),function(error, result){
+            if(!error)
+                {
+                    $("#info").html('role');
+                    console.log(result);
+                }
+            else
+                {
+                    $("#info").html('role');
+                    console.log(result);
+                }
+        });
+
+        $("#button").click(function() {
+            info.set($("#name").val(), $("#role").val());
+        });
+		
+		$("#showButton").click(function() {
+            info.get($("#name").val(),function(error, result){
+            if(!error)
+                {
+                    $("#info").html(result+'');
+                    console.log(result);
+                }
+            else
+                console.log(error);
+        });
+        });
+
+    </script>
+
+</body>
+</html>
